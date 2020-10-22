@@ -6,42 +6,6 @@ import { TaskStatusValidationPipe } from './pipes/task-status-validation.pipe';
 import { Task } from './task.entity';
 import { TaskStatus } from './task-status.enum';
 
-function classDecorator(target: any) {
-  console.log(target);
-}
-
-function methodDecorator(target: any, name: string, descriptor: PropertyDescriptor) {
-  console.log('Method decorator');
-  console.log(target);
-  console.log(name);
-  console.log(descriptor);
-}
-
-function propertyDecorator(target: any, propertyName: string) {
-  console.log('property decorator');
-  console.log(target);
-  console.log(propertyName);
-}
-
-@classDecorator
-class Blog {
-
-  @propertyDecorator
-  author: string;
-  blogs: any[] = [];
-  constructor(author: string) {
-    this.author = author;
-    this.blogs = ['blog1', 'blog2', 'blog3'];
-  }
-
-  @methodDecorator
-  getBlogNum() {
-    return this.blogs.length;
-  }
-}
-
-const testBlog = new Blog('nick');
-console.log(testBlog.getBlogNum());
 
 @Controller('tasks') // bound routed
 export class TasksController {
